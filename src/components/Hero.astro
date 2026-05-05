@@ -1,0 +1,261 @@
+---
+const roles = [
+  "Full Stack Developer",
+  "SAP ABAP Developer",
+  "UI/UX Designer",
+  "Game Dev",
+];
+
+const codeSnippet = `# GDScript — Godot 4.x
+extends CharacterBody2D
+
+const SPEED    := 200.0
+const GRAVITY  := 980.0
+var   is_alive := true
+
+func _physics_process(delta: float) -> void:
+    if not is_on_floor():
+        velocity.y += GRAVITY * delta
+
+    var dir := Input.get_axis("move_left", "move_right")
+    velocity.x = dir * SPEED
+    move_and_slide()`;
+---
+
+<section
+  id="inicio"
+  class="relative min-h-screen flex items-center pt-24 pb-16 overflow-hidden"
+  aria-label="Presentación principal"
+>
+  <!-- Background grid decoration -->
+  <div
+    class="absolute inset-0 bg-[linear-gradient(rgba(0,200,150,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(0,200,150,0.03)_1px,transparent_1px)] bg-[size:64px_64px]"
+  >
+  </div>
+
+  <!-- Glow top-right -->
+  <div
+    class="absolute top-0 right-0 w-[600px] h-[600px] bg-[#00C896]/5 rounded-full blur-[120px] pointer-events-none"
+  >
+  </div>
+  <!-- Glow bottom-left -->
+  <div
+    class="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[#0FAAFF]/5 rounded-full blur-[100px] pointer-events-none"
+  >
+  </div>
+
+  <div class="max-w-6xl mx-auto px-6 w-full">
+    <div class="grid lg:grid-cols-2 gap-12 items-center">
+      <!-- Left: Text content -->
+      <div class="hero-content space-y-6">
+        <!-- Badge -->
+        <div class="inline-flex items-center gap-2 px-3 py-1.5 bg-[#00C896]/10 border border-[#00C896]/20 rounded-full text-[#00C896] text-sm font-medium">
+          <span class="w-2 h-2 bg-[#00C896] rounded-full animate-pulse"></span>
+          Disponible para proyectos
+        </div>
+
+        <!-- Name -->
+        <div>
+          <p class="text-gray-400 text-lg mb-2 font-mono">Hola, soy</p>
+          <h1 class="font-jetbrains font-extrabold text-5xl sm:text-6xl lg:text-7xl text-white leading-none">
+            Hatman
+            <span class="text-[#00C896]">.</span>
+          </h1>
+        </div>
+
+        <!-- Animated role -->
+        <div class="flex items-center gap-3 h-8">
+          <span class="text-[#0FAAFF] font-mono text-lg">&gt;</span>
+          <div class="overflow-hidden h-8">
+            <p
+              id="hero-role"
+              class="font-jetbrains font-bold text-xl text-gray-200 transition-all duration-500"
+            >
+              Full Stack Developer
+            </p>
+          </div>
+        </div>
+
+        <!-- Quote -->
+        <blockquote class="border-l-2 border-[#00C896] pl-4 text-gray-400 italic max-w-lg">
+          "El buen código no solo funciona — se entiende, se mantiene y escala."
+        </blockquote>
+
+        <!-- CTAs -->
+        <div class="flex flex-wrap gap-4 pt-2">
+          <a
+            href="#proyectos"
+            class="px-6 py-3 bg-[#00C896] text-[#0d1117] font-semibold rounded-lg hover:bg-[#00b085] transition-all duration-200 hover:shadow-[0_0_25px_rgba(0,200,150,0.4)] hover:-translate-y-0.5"
+          >
+            Ver proyectos
+          </a>
+          <a
+            href="#contacto"
+            class="px-6 py-3 border border-gray-700 text-gray-300 font-semibold rounded-lg hover:border-[#00C896] hover:text-[#00C896] transition-all duration-200 hover:-translate-y-0.5"
+          >
+            Contactar
+          </a>
+        </div>
+
+        <!-- Stats row -->
+        <div class="flex gap-8 pt-4 border-t border-gray-800">
+          <div>
+            <p class="font-jetbrains font-bold text-2xl text-[#00C896]">2+</p>
+            <p class="text-gray-500 text-sm">Años de experiencia</p>
+          </div>
+          <div>
+            <p class="font-jetbrains font-bold text-2xl text-[#00C896]">5+</p>
+            <p class="text-gray-500 text-sm">Proyectos completados</p>
+          </div>
+          <div>
+            <p class="font-jetbrains font-bold text-2xl text-[#00C896]">4</p>
+            <p class="text-gray-500 text-sm">Especialidades</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Code snippet decoration -->
+      <div class="hero-code relative">
+        <div
+          class="relative bg-[#161b22] border border-gray-800 rounded-xl overflow-hidden shadow-2xl"
+        >
+          <!-- Window bar -->
+          <div class="flex items-center gap-2 px-4 py-3 bg-[#1c2128] border-b border-gray-800">
+            <span class="w-3 h-3 rounded-full bg-[#FF5F57]"></span>
+            <span class="w-3 h-3 rounded-full bg-[#FFBD2E]"></span>
+            <span class="w-3 h-3 rounded-full bg-[#28C840]"></span>
+            <span class="ml-3 text-xs text-gray-500 font-mono">player_controller.gd</span>
+          </div>
+
+          <!-- Code content -->
+          <pre
+            class="p-5 text-sm font-jetbrains leading-relaxed overflow-x-auto"
+            aria-hidden="true"
+          ><code id="hero-code" class="text-gray-300">{codeSnippet}</code></pre>
+
+          <!-- Glow overlay -->
+          <div
+            class="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-[#161b22] to-transparent pointer-events-none"
+          >
+          </div>
+        </div>
+
+        <!-- Floating badges -->
+        <div
+          class="absolute -top-4 -right-4 px-3 py-1.5 bg-[#0FAAFF]/10 border border-[#0FAAFF]/30 rounded-lg text-[#0FAAFF] text-xs font-mono backdrop-blur-sm"
+        >
+          SAP ABAP ✓
+        </div>
+        <div
+          class="absolute -bottom-4 -left-4 px-3 py-1.5 bg-[#00C896]/10 border border-[#00C896]/30 rounded-lg text-[#00C896] text-xs font-mono backdrop-blur-sm"
+        >
+          Godot 4.x ✓
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="flex justify-center mt-16">
+      <a
+        href="#sobre-mi"
+        class="flex flex-col items-center gap-2 text-gray-600 hover:text-[#00C896] transition-colors duration-200 group"
+        aria-label="Ir a la sección Sobre mí"
+      >
+        <span class="text-xs font-mono">scroll</span>
+        <div class="w-0.5 h-8 bg-gray-800 relative overflow-hidden rounded-full">
+          <div
+            class="absolute top-0 left-0 w-full bg-[#00C896] rounded-full animate-scroll-line"
+          >
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Animated role cycling
+  const roles = [
+    "Full Stack Developer",
+    "SAP ABAP Developer",
+    "UI/UX Designer",
+    "Game Dev",
+  ];
+  let currentRole = 0;
+  const roleEl = document.getElementById("hero-role");
+
+  setInterval(() => {
+    if (!roleEl) return;
+    roleEl.style.opacity = "0";
+    roleEl.style.transform = "translateY(-10px)";
+    setTimeout(() => {
+      currentRole = (currentRole + 1) % roles.length;
+      roleEl.textContent = roles[currentRole];
+      roleEl.style.opacity = "1";
+      roleEl.style.transform = "translateY(0)";
+    }, 300);
+  }, 2500);
+
+  // Syntax highlighting via class injection
+  const codeEl = document.getElementById("hero-code");
+  if (codeEl) {
+    let html = codeEl.textContent || "";
+    // Comments
+    html = html.replace(/(#.*)/g, '<span class="text-gray-500">$1</span>');
+    // Keywords
+    html = html.replace(
+      /\b(extends|const|var|func|if|not|return)\b/g,
+      '<span class="text-[#FF7B72]">$1</span>'
+    );
+    // Types/classes
+    html = html.replace(
+      /\b(CharacterBody2D|float|bool|int)\b/g,
+      '<span class="text-[#79C0FF]">$1</span>'
+    );
+    // Functions
+    html = html.replace(
+      /\b(_physics_process|is_on_floor|get_axis|move_and_slide)\b/g,
+      '<span class="text-[#D2A8FF]">$1</span>'
+    );
+    // Strings
+    html = html.replace(
+      /"([^"]*)"/g,
+      '<span class="text-[#A5D6FF]">"$1"</span>'
+    );
+    // Numbers and booleans
+    html = html.replace(
+      /\b(200\.0|980\.0|true|false)\b/g,
+      '<span class="text-[#F0883E]">$1</span>'
+    );
+    // Built-in objects
+    html = html.replace(
+      /\b(Input|velocity)\b/g,
+      '<span class="text-[#00C896]">$1</span>'
+    );
+    codeEl.innerHTML = html;
+  }
+
+  // Entrance animation
+  const heroContent = document.querySelector(".hero-content");
+  const heroCode = document.querySelector(".hero-code");
+  if (heroContent) {
+    (heroContent as HTMLElement).style.opacity = "0";
+    (heroContent as HTMLElement).style.transform = "translateY(20px)";
+    setTimeout(() => {
+      (heroContent as HTMLElement).style.transition =
+        "opacity 0.7s ease, transform 0.7s ease";
+      (heroContent as HTMLElement).style.opacity = "1";
+      (heroContent as HTMLElement).style.transform = "translateY(0)";
+    }, 100);
+  }
+  if (heroCode) {
+    (heroCode as HTMLElement).style.opacity = "0";
+    (heroCode as HTMLElement).style.transform = "translateY(20px)";
+    setTimeout(() => {
+      (heroCode as HTMLElement).style.transition =
+        "opacity 0.7s ease 0.2s, transform 0.7s ease 0.2s";
+      (heroCode as HTMLElement).style.opacity = "1";
+      (heroCode as HTMLElement).style.transform = "translateY(0)";
+    }, 100);
+  }
+</script>

@@ -1,0 +1,71 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Hero from '../components/Hero.astro';
+import About from '../components/About.astro';
+import Skills from '../components/Skills.astro';
+import Projects from '../components/Projects.astro';
+import Experience from '../components/Experience.astro';
+import Contact from '../components/Contact.astro';
+---
+
+<Layout>
+  <Navbar />
+
+  <main id="main-content" aria-label="Contenido principal">
+    <Hero />
+    <About />
+    <Skills />
+    <Projects />
+    <Experience />
+    <Contact />
+  </main>
+
+  <footer class="border-t border-gray-800 py-8 text-center">
+    <div class="max-w-6xl mx-auto px-6">
+      <p class="font-jetbrains text-gray-600 text-sm">
+        <span class="text-[#00C896]">&lt;</span>
+        Diseñado y desarrollado por
+        <a
+          href="https://github.com/HatmanX"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-gray-400 hover:text-[#00C896] transition-colors duration-200"
+        >
+          Hatman
+        </a>
+        <span class="text-[#00C896]">/&gt;</span>
+        · {new Date().getFullYear()}
+      </p>
+      <p class="text-gray-700 text-xs mt-2 font-mono">
+        Construido con Astro 4.x · TailwindCSS · ❤️
+      </p>
+    </div>
+  </footer>
+</Layout>
+
+<script>
+  // Global scroll reveal para elementos con clase .reveal-on-scroll
+  const revealElements = document.querySelectorAll<HTMLElement>('.reveal-on-scroll');
+  revealElements.forEach((el) => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+  });
+
+  const revealObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const el = entry.target as HTMLElement;
+          el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+          el.style.opacity = '1';
+          el.style.transform = 'translateY(0)';
+          revealObserver.unobserve(el);
+        }
+      });
+    },
+    { threshold: 0.1 }
+  );
+
+  revealElements.forEach((el) => revealObserver.observe(el));
+</script>
